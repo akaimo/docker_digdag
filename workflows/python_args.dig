@@ -1,0 +1,16 @@
+timezone: UTC
+
++set:
+  py>: tasks.python_args.set
+
++get:
+  py>: tasks.python_args.get
+
++args:
+  py>: tasks.python_args.args
+  arg1: 'sample-arg'
+
++export:
+  py>: tasks.python_args.export
+  _export:
+    p1: {"sample-key": "sample-value"}
