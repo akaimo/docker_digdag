@@ -1,0 +1,4 @@
+timezone: UTC
+
++req:
+  py>: tasks.requests.req
