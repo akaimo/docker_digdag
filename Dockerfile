@@ -24,4 +24,14 @@ RUN set -x \
       -L "https://dl.digdag.io/digdag-${DIGDAG_VERSION}" \
   && chmod +x /usr/local/bin/digdag
 
+COPY entrypoint.sh /usr/local/bin
+COPY server.properties /etc/digdag/server.properties
 
+RUN set -x \
+  && envsubst < /etc/digdag/server.properties > /etc/digdag/server.properties \
+  && chmod +x /usr/local/bin/entrypoint.sh
+
+EXPOSE 65432 65433
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD ["/usr/local/bin/digdag", "server", "--config", "/etc/digdag/server.properties"]
