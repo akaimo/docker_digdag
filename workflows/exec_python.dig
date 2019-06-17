@@ -2,3 +2,6 @@ timezone: UTC
 
 +a:
   py>: tasks.exec-python.version
+
++b:
+  py>: tasks.exec-python.date
