@@ -4,7 +4,7 @@ ARG DIGDAG_VERSION=0.9.37
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
-ENV PYTHON_VERSION 3.7.1
+ENV PYTHON_VERSION 3.6.8
 ENV PYTHON_ROOT $HOME/local/python-$PYTHON_VERSION
 ENV PATH $PYTHON_ROOT/bin:$PATH
 ENV PYENV_ROOT $HOME/.pyenv
@@ -55,10 +55,12 @@ RUN set -x \
   && rm -rf $PYENV_ROOT \
   && rm -rf /var/lib/apt/lists/*
 
+COPY requirements.txt /requirements.txt
 COPY entrypoint.sh /usr/local/bin
 COPY server.properties /etc/digdag/server.properties
 
 RUN set -x \
+  && pip install -r requirements.txt \
   && envsubst < /etc/digdag/server.properties > /etc/digdag/server.properties \
   && chmod +x /usr/local/bin/entrypoint.sh
 

@@ -1,0 +1,4 @@
+requests==2.21.0
+redis==3.2.1
+SQLAlchemy==1.2.18
+pandas==0.24.2
