@@ -61,7 +61,6 @@ COPY server.properties /etc/digdag/server.properties
 
 RUN set -x \
   && pip install -r requirements.txt \
-  && envsubst < /etc/digdag/server.properties > /etc/digdag/server.properties \
   && chmod +x /usr/local/bin/entrypoint.sh
 
 EXPOSE 65432 65433

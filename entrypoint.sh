@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+envsubst < /etc/digdag/server.properties > /etc/digdag/server.properties
+
 wait_for_port() {
   local name="$1" host="$2" port="$3"
   local j=0
