@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  postgresql:
+    container_name: postgres
+    image: postgres:9
+    environment:
+      - POSTGRES_USER=digdag
+      - POSTGRES_PASSWORD=digdag
+      - POSTGRES_DB=digdag
+
+  digdag:
+    container_name: digdag
+    build:
+      context: .
+    depends_on:
+      - postgresql
+    ports:
+      - "65432:65432"
+      - "65433:65433"
+    volumes:
+      - ./workflows:/workflows

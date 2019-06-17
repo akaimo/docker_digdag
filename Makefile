@@ -7,3 +7,6 @@ down:
 
 build:
 	docker build .
+
+digdag:
+	docker exec -it digdag bash
