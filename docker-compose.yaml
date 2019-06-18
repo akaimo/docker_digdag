@@ -12,7 +12,19 @@ services:
     container_name: digdag
     build:
       context: .
-    command: ["/usr/local/bin/digdag", "server", "--disable-executor-loop", "--disable-local-agent", "--config", "/etc/digdag/server.properties", "--task-log", "/var/log/digdag", "--access-log", "/var/log/digdag/access"]
+    command:
+      [
+        "/usr/local/bin/digdag",
+        "server",
+        "--disable-executor-loop",
+        "--disable-local-agent",
+        "--config",
+        "/etc/digdag/server.properties",
+        "--task-log",
+        "/var/log/digdag",
+        "--access-log",
+        "/var/log/digdag/access",
+      ]
     depends_on:
       - postgresql
     ports:
@@ -26,7 +38,15 @@ services:
     container_name: worker1
     build:
       context: .
-    command: ["/usr/local/bin/digdag", "server", "--config", "/etc/digdag/server.properties", "--task-log", "/var/log/digdag"]
+    command:
+      [
+        "/usr/local/bin/digdag",
+        "server",
+        "--config",
+        "/etc/digdag/server.properties",
+        "--task-log",
+        "/var/log/digdag",
+      ]
     depends_on:
       - postgresql
     volumes:
@@ -37,7 +57,15 @@ services:
     container_name: worker2
     build:
       context: .
-    command: ["/usr/local/bin/digdag", "server", "--config", "/etc/digdag/server.properties", "--task-log", "/var/log/digdag"]
+    command:
+      [
+        "/usr/local/bin/digdag",
+        "server",
+        "--config",
+        "/etc/digdag/server.properties",
+        "--task-log",
+        "/var/log/digdag",
+      ]
     depends_on:
       - postgresql
     volumes:
