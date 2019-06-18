@@ -23,6 +23,18 @@ services:
       - logdata:/var/log/digdag
 
   worker1:
+    container_name: worker1
+    build:
+      context: .
+    command: ["/usr/local/bin/digdag", "server", "--config", "/etc/digdag/server.properties", "--task-log", "/var/log/digdag"]
+    depends_on:
+      - postgresql
+    volumes:
+      - ./workflows:/workflows
+      - logdata:/var/log/digdag
+
+  worker2:
+    container_name: worker2
     build:
       context: .
     command: ["/usr/local/bin/digdag", "server", "--config", "/etc/digdag/server.properties", "--task-log", "/var/log/digdag"]
