@@ -63,6 +63,12 @@ RUN set -x \
   && pip install -r requirements.txt \
   && chmod +x /usr/local/bin/entrypoint.sh
 
+ENV DOCKER_CLIENT_VERSION 1.12.6
+
+RUN set -x \
+  && curl -fsSL https://get.docker.com/builds/Linux/x86_64/docker-${DOCKER_CLIENT_VERSION}.tgz \
+  | tar -xzC /usr/local/bin --strip=1 docker/docker
+
 EXPOSE 65432 65433
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
