@@ -52,6 +52,8 @@ services:
     volumes:
       - ./workflows:/workflows
       - logdata:/var/log/digdag
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp:/tmp
 
   worker2:
     container_name: worker2
@@ -71,6 +73,8 @@ services:
     volumes:
       - ./workflows:/workflows
       - logdata:/var/log/digdag
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp:/tmp
 
 volumes:
   logdata:

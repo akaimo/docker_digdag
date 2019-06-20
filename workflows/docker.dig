@@ -1,0 +1,8 @@
+timezone: UTC
+
+_export:
+  docker:
+    image: 'python:3.6.8'
+
++a:
+  py>: tasks.exec-python.version
