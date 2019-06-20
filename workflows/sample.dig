@@ -1,4 +1,4 @@
-timezone: UTC
+timezone: Asia/Tokyo
 
 schedule:
   cron>: '*/5 * * * *'
