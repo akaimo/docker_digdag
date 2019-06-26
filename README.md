@@ -1,6 +1,10 @@
 # docker_digdag
 Sample High Availability fot Digdag with Docker
 
+## Requirements
+- Docker
+- Docker Compose
+
 ## Usage
 ### Start-up
 ```
@@ -19,7 +23,7 @@ ls workflows
 ### UI Link
 - [localhost:65432](http://localhost:65432)
 
-### Image Build
+### Build Image
 ```
 make build
 ```
