@@ -16,6 +16,8 @@ ENV POSTGRES_USER=digdag \
     POSTGRES_DB=digdag \
     ENCRYPTION_KEY=MDEyMzQ1Njc4OTAxMjM0NQ==
 
+ENV TZ Asia/Tokyo
+
 RUN set -x \
   && apt-get update \
   && apt-get install -y \
