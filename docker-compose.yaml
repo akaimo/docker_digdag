@@ -50,7 +50,6 @@ services:
     depends_on:
       - postgresql
     volumes:
-      - ./workflows:/workflows
       - logdata:/var/log/digdag
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp:/tmp
@@ -71,7 +70,6 @@ services:
     depends_on:
       - postgresql
     volumes:
-      - ./workflows:/workflows
       - logdata:/var/log/digdag
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp:/tmp
