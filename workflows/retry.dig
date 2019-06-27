@@ -1,0 +1,17 @@
+timezone: Asia/Tokyo
+
+schedule:
+  cron>: '*/5 * * * *'
+  # Disable backfill
+  skip_delayed_by: 1s
+
+_retry:
+  limit: 3
+  interval: 10
+  interval_type: exponential
+
++task1:
+  echo>: start ${session_time}
+
++task2:
+  py>: task.raise.err
