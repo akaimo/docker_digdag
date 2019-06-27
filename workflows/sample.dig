@@ -2,6 +2,8 @@ timezone: Asia/Tokyo
 
 schedule:
   cron>: '*/5 * * * *'
+  # Disable backfill
+  skip_delayed_by: 1s
 
 +setup:
   echo>: start ${session_time}
